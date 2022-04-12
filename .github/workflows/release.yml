@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - run: docker build . -t laithharden/nest-app
+      - uses: actions/checkout@v3
+      - run: docker build . -t sam1618/github-actions-learning
+      # these values are inside: github->settings->secrets/actions
       - run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-      - run: docker push laithharden/nest-app
+      - run: docker push sam1618/github-actions-learning
